@@ -94,9 +94,9 @@
 </section>
 
 <section class="hero teaser">
-  <div class="container is-max-desktop">
+  <div class="container is-max-widescreen">
     <div class="hero-body">
-      <img src="./static/images/fig_one_quant.png" alt="LocalNav schematic overview">
+      <img src="./static/images/fig_one_quant.png" alt="LocalNav schematic overview" style="width: 100%; height: auto;">
       <h2 class="subtitle has-text-centered">
         Supervised Fine-Tuning (<b>SFT</b>) distills Object Goal Navigation capabilities from frontier cloud
         <b>VLM</b>s into a 4B on-device model, a +26% point Success Rate gain.
@@ -207,7 +207,7 @@ This invokes the low-level planner to navigate the agent to the 3D position of <
             real apartment <span class="c-localnav">"sofa,"</span> <span class="c-yellowi">"piano,"</span> <span class="c-redi">"bathtub,"</span> and <span class="c-greeni">"person sitting at a table"</span> in a single continuous run. The agent reuses its accumulating Scene Graph across targets: the
             <span class="c-redi">"bathtub"</span> query is answered immediately since it was already observed near the start, while
             the final query demonstrates open-vocabulary grounding by visually confirming <span class="c-greeni">"a person is
-            seated at a table"</span> before stopping.
+            seated at a table"</span> before stopping. We also deploy LocalNav on a Unitree A2W wheeled-quadruped in other experiments.
           </p>
         </div>
         <img src="./static/images/longstreet_compressed.png" alt="Real-world multi-target ObjectNav trajectory">
