@@ -2,6 +2,13 @@ body {
   font-family: 'Noto Sans', sans-serif;
 }
 
+.c-localnav { color: #534ace; }
+.c-purplei  { color: #9673A6; }
+.c-yellowi  { color: #D6B656; }
+.c-triangle { color: #FA6800; }
+.c-greeni   { color: #3A5431; }
+.c-redi     { color: #B20000; }
+
 
 .footer .icon-link {
     font-size: 25px;

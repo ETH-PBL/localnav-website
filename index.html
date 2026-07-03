@@ -32,7 +32,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">LocalNav: Distilling Frontier VLMs and Embodied RL for On-Device Object Goal Navigation</h1>
+          <h1 class="title is-1 publication-title"><b class="c-localnav">LocalNav</b>: Distilling Frontier VLMs and Embodied RL for On-Device Object Goal Navigation</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">Nicolas Baumann<sup>1,2,*</sup>,</span>
             <span class="author-block">Liam Boyle<sup>1,*</sup>,</span>
@@ -98,9 +98,9 @@
     <div class="hero-body">
       <img src="./static/images/fig_one_quant.png" alt="LocalNav schematic overview">
       <h2 class="subtitle has-text-centered">
-        Supervised Fine-Tuning (SFT) distills Object Goal Navigation capabilities from frontier cloud
-        VLMs into a 4B on-device model, a +26% point Success Rate gain.
-        Embodied RL from Verifiable Rewards (E-RLVR) then grounds the agent and regularizes output
+        Supervised Fine-Tuning (<b>SFT</b>) distills Object Goal Navigation capabilities from frontier cloud
+        <b>VLM</b>s into a 4B on-device model, a +26% point Success Rate gain.
+        Embodied RL from Verifiable Rewards (<b>E-RLVR</b>) then grounds the agent and regularizes output
         length, cutting inference latency by 71.8% for on-board deployment.
       </h2>
     </div>
@@ -116,7 +116,7 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-           Vision Language Models (VLMs) have emerged in the robotic domain as a powerful tool that enables environmental perception with language context, serving as a catalyst for open-vocabulary tasks like ObjectNav. Yet, their computational footprint typically confines them to cloud execution, hindering low-latency inference with local deployment on resource-constrained robots. To address this challenge, we present a distillation strategy that transfers complex spatial-semantic reasoning from large frontier models into a lightweight, 4B-parameter local VLM for edge execution on embedded GPU devices (e.g., Jetson Orin). We first establish a State of the Art (SotA), Scene Graph (SG)-based pipeline using Claude Sonnet 4.6, achieving a 39.7% Success Rate (SR) on the HM3D OVON benchmark. We then demonstrate that fine-tuning Qwen3.5-4B on just 500 frontier reasoning traces effectively enables navigation capabilities, yielding a SR of 34.5%, narrowing the gap to the performance of large cloud models. Finally, we introduce E-RLVR with Token Generation (TG) regularization to compress output sequence lengths for physical deployment while grounding the agent in its task. This downstream optimization reduces TG overhead by 72.1% and latency by 71.8%. Combined with quantization, this joint strategy yields a cumulative 82.8% reduction in overall inference latency without significantly sacrificing performance, presenting a viable paradigm for local, low-latency VLM execution on mobile robots.
+           Vision Language Models (VLMs) have emerged in the robotic domain as a powerful tool that enables environmental perception with language context, serving as a catalyst for open-vocabulary tasks like ObjectNav. Yet, their computational footprint typically confines them to cloud execution, hindering low-latency inference with local deployment on resource-constrained robots. To address this challenge, we present a distillation strategy that transfers complex spatial-semantic reasoning from large frontier models into a lightweight, 4B-parameter local VLM for edge execution on embedded GPU devices (e.g., <i>Jetson Orin</i>). We first establish a State of the Art (SotA), Scene Graph (SG)-based pipeline using <i>Claude Sonnet 4.6</i>, achieving a 39.7% Success Rate (SR) on the <i>HM3D OVON</i> benchmark. We then demonstrate that fine-tuning <i>Qwen3.5-4B</i> on just 500 frontier reasoning traces effectively enables navigation capabilities, yielding a SR of 34.5%, narrowing the gap to the performance of large cloud models. Finally, we introduce E-RLVR with Token Generation (TG) regularization to compress output sequence lengths for physical deployment while grounding the agent in its task. This downstream optimization reduces TG overhead by 72.1% and latency by 71.8%. Combined with quantization, this joint strategy yields a cumulative 82.8% reduction in overall inference latency without significantly sacrificing performance, presenting a viable paradigm for local, low-latency VLM execution on mobile robots.
           </p>
         </div>
       </div>
@@ -135,10 +135,10 @@
         <h2 class="title is-3">System Architecture</h2>
         <div class="content has-text-justified">
           <p>
-            Overview of the system architecture. A 3D SG is built in real time, providing information about rooms, objects, and unknown frontiers. SG objects which are within the agent’s PoV are
+            Overview of the system architecture. A 3D SG is built in real time, providing information about <b class="c-purplei">rooms</b>, <b class="c-yellowi">objects</b>, and <b class="c-triangle">unknown frontiers</b>. SG objects which are within the agent’s PoV are
 projected into the prompt image, while the overall state of the SG is described in the text prompt.
-For space efficiency, we only plot a simplified version of the text prompt. In this example, the VLM chooses navigate(stove(23)) as the next action.
-This invokes the low-level planner to navigate the agent to the 3D position of stove(23).
+For space efficiency, we only plot a simplified version of the text prompt. In this example, the VLM chooses <code>navigate(stove(23))</code> as the next action.
+This invokes the low-level planner to navigate the agent to the 3D position of <code>stove(23)</code>.
           </p>
         </div>
         <img src="./static/images/ObjNav-system-arch.png" alt="System architecture diagram">
@@ -155,9 +155,9 @@ This invokes the low-level planner to navigate the agent to the 3D position of s
             A zero-shot 4B model manages only 21% SR, getting stuck in execution loops. We record raw
             reasoning traces from <i>Gemini 3.1 Pro</i>, <i>GPT-5.4</i>, and <i>Claude Sonnet 4.6</i> as
             they solve ObjectNav in simulation, keeping only successful trajectories. Fine-tuning
-            <i>Qwen3.5-4B</i> on just <b>~500</b> of these image&ndash;SG&ndash;output samples per
+            <i>Qwen3.5-4B</i> on just ~500 of these image&ndash;SG&ndash;output samples per
             teacher, orders of magnitude less than typical SFT corpora, lifts SR to
-            <b>47%</b> with the <i>Claude</i>-distilled dataset, closing most of the gap to cloud models.
+            47% with the <i>Claude</i>-distilled dataset, closing most of the gap to cloud models.
           </p>
         </div>
       </div>
@@ -181,10 +181,10 @@ This invokes the low-level planner to navigate the agent to the 3D position of s
         <div class="content has-text-justified" style="margin-top: 1rem;">
           <p>
             Combining SFT pretraining with downstream E-RLVR yields the most deployment-viable model:
-            SR ticks up to <b>49%</b>, redundant object revisits halve, and output length drops by
-            <b>72.1%</b> a 71.8% cut in per-episode latency. Paired with 4-bit quantization on a
+            redundant object revisits reduce by ~50%, and TG length drops by
+            72.1%, a 71.8% cut in per-episode latency. Paired with 4-bit quantization on a
             <i>Jetson Orin AGX</i>, the full pipeline reduces end-to-end inference latency by
-            <b>82.8%</b> without significantly sacrificing navigation performance.
+            82.8% without significantly sacrificing navigation performance.
           </p>
         </div>
         <img src="./static/images/rl_curves.png" alt="E-RLVR training curves: reward increasing and output tokens decreasing over training steps">
@@ -204,10 +204,10 @@ This invokes the low-level planner to navigate the agent to the 3D position of s
         <div class="content has-text-justified">
           <p>
             We deploy LocalNav on a hand-held device and complete four sequential ObjectNav tasks in a
-            real apartment "sofa," "piano," "bathtub," and "person sitting at a table" in a single continuous run. The agent reuses its accumulating Scene Graph across targets: the
-            "bathtub" query is answered immediately since it was already observed near the start, while
-            the final query demonstrates open-vocabulary grounding by visually confirming a person is
-            seated at a table before stopping.
+            real apartment <span class="c-localnav">"sofa,"</span> <span class="c-yellowi">"piano,"</span> <span class="c-redi">"bathtub,"</span> and <span class="c-greeni">"person sitting at a table"</span> in a single continuous run. The agent reuses its accumulating Scene Graph across targets: the
+            <span class="c-redi">"bathtub"</span> query is answered immediately since it was already observed near the start, while
+            the final query demonstrates open-vocabulary grounding by visually confirming <span class="c-greeni">"a person is
+            seated at a table"</span> before stopping.
           </p>
         </div>
         <img src="./static/images/longstreet_compressed.png" alt="Real-world multi-target ObjectNav trajectory">
@@ -258,6 +258,9 @@ This invokes the low-level planner to navigate the agent to the 3D position of s
           <p>
             Website source adapted from the <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>
             project page template.
+          </p>
+          <p>
+            This website is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
           </p>
         </div>
       </div>
