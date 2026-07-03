@@ -124,7 +124,7 @@
     <!--/ Abstract. -->
 
     <!-- Video. -->
-    <div class="columns is-centered has-text-centered">
+    <div class="columns is-centered has-text-centered" style="margin-top: 3rem;">
       <div class="column is-full-width">
         <video controls playsinline width="100%">
           <source src="./static/videos/local_nav_video.mp4" type="video/mp4">
@@ -214,7 +214,7 @@ This invokes the low-level planner to navigate the agent to the 3D position of <
         <div class="content has-text-justified">
           <p>
             We deploy LocalNav on a hand-held device and complete four sequential ObjectNav tasks in a
-            real apartment <span class="c-localnav">"sofa,"</span> <span class="c-yellowi">"piano,"</span> <span class="c-redi">"bathtub,"</span> and <span class="c-greeni">"person sitting at a table"</span> in a single continuous run. The agent reuses its accumulating Scene Graph across targets: the
+            real apartment <span class="c-localnav">"sofa"</span>, <span class="c-yellowi">"piano"</span>, <span class="c-redi">"bathtub"</span>, and <span class="c-greeni">"person sitting at a table"</span> in a single continuous run. The agent reuses its accumulating Scene Graph across targets: the
             <span class="c-redi">"bathtub"</span> query is answered immediately since it was already observed near the start, while
             the final query demonstrates open-vocabulary grounding by visually confirming <span class="c-greeni">"a person is
             seated at a table"</span> before stopping. We also deploy LocalNav on a Unitree A2W wheeled-quadruped in other experiments.
@@ -230,8 +230,8 @@ This invokes the low-level planner to navigate the agent to the 3D position of <
         <img src="./static/images/unitree_a2w.jpeg" alt="Unitree A2W wheeled-quadruped platform">
       </div>
       <div class="column is-two-fifths">
-        <h3 class="title is-4 has-text-centered">Handheld Tartaruga</h3>
-        <img src="./static/images/tartaruga_cropped.png" alt="Handheld Tartaruga device with Jetson and ZED camera">
+        <h3 class="title is-4 has-text-centered">Handheld Device</h3>
+        <img src="./static/images/tartaruga_cropped.png" alt="Handheld Device device with Jetson and ZED camera">
       </div>
     </div>
 
